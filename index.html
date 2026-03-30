@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Map Builder</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="app-header">
+        <div class="container app-header__inner">
+            <div class="brand-lockup">
+                <p class="eyebrow eyebrow-light">Colorado State University</p>
+                <h1>Course Map Builder</h1>
+            </div>
+        </div>
+    </header>
+
+    <main class="container page">
+        <section class="trust-banner" aria-label="Tool notice">
+            <p>This is an unofficial tool not affiliated with CSU IT. Your data never leaves your browser. Nothing you enter is transmitted, stored, or shared with any server or third party.</p>
+        </section>
+
+        <section id="setup" class="section-card">
+            <div class="section-heading">
+                <div>
+                    <p class="section-kicker">Section 1</p>
+                    <h2>Course setup</h2>
+                    <p class="section-copy">Start with the course details that frame the rest of the planning work.</p>
+                </div>
+            </div>
+
+            <div class="field-grid">
+                <label class="field">
+                    <span>Course name</span>
+                    <input type="text" placeholder="Introduction to Environmental Justice" data-bind="course.name">
+                </label>
+                <label class="field">
+                    <span>Course code</span>
+                    <input type="text" placeholder="SOC 325" data-bind="course.code">
+                </label>
+                <label class="field">
+                    <span>Instructor name</span>
+                    <input type="text" placeholder="Dr. Rivera" data-bind="course.instructor">
+                </label>
+                <label class="field">
+                    <span>Development term</span>
+                    <input type="text" placeholder="Fall 2026" data-bind="course.term">
+                </label>
+                <label class="field">
+                    <span>Instructional designer</span>
+                    <input type="text" placeholder="Avery Lopez" data-bind="course.designer">
+                </label>
+                <label class="field">
+                    <span>Designer email</span>
+                    <input type="email" placeholder="avery@example.edu" data-bind="course.designerEmail">
+                </label>
+                <label class="field">
+                    <span>Canvas URL</span>
+                    <input type="text" placeholder="https://..." data-bind="course.canvasUrl">
+                </label>
+                <label class="field">
+                    <span>Other tools</span>
+                    <input type="text" placeholder="Perusall, Flipgrid, online text, simulation tools" data-bind="course.tools">
+                </label>
+            </div>
+
+            <label class="field field-full">
+                <span>Textbook citation</span>
+                <textarea rows="3" placeholder="List the textbook or primary course materials." data-bind="course.textbook"></textarea>
+            </label>
+        </section>
+
+        <section id="foundations" class="section-card">
+            <div class="section-heading">
+                <div>
+                    <p class="section-kicker">Section 2</p>
+                    <h2>Foundations</h2>
+                    <p class="section-copy">Write the course overview and the main outcomes for the term.</p>
+                </div>
+
+                <aside class="tip-note">
+                    <span class="tip-note__icon" aria-hidden="true">i</span>
+                    <div>
+                        <h3>Tip</h3>
+                        <p>If objectives feel stuck, start with what learners should be able to do by the end.</p>
+                    </div>
+                </aside>
+            </div>
+
+            <label class="field field-full">
+                <span>Course overview</span>
+                <textarea rows="5" placeholder="Summarize the course purpose, its through-line, and what learners will be building toward." data-bind="course.overview"></textarea>
+            </label>
+
+            <div class="content-block">
+                <div class="block-header">
+                    <div>
+                        <h3>Course objectives</h3>
+                    </div>
+                </div>
+
+                <div id="course-objectives" class="repeater-list"></div>
+                <div class="add-row">
+                    <button class="btn btn-add add-row__button" type="button" data-action="add-course-objective">
+                        <span class="add-row__icon" aria-hidden="true">+</span>
+                        <span>Add course objective</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section id="modules" class="section-card">
+            <div class="section-heading">
+                <div>
+                    <p class="section-kicker">Section 3</p>
+                    <h2>Modules</h2>
+                    <p class="section-copy">Build one module at a time.</p>
+                </div>
+            </div>
+
+            <div id="module-zone" class="module-zone"></div>
+        </section>
+    </main>
+
+    <div class="download-bar">
+        <div class="container download-bar__inner">
+            <p>Ready to stop for now? Download the current draft at any point.</p>
+            <div class="download-bar__actions">
+                <button class="btn btn-ghost" type="button" data-action="clear-draft">Reset progress</button>
+                <button class="btn btn-primary" type="button" data-action="download-word">Download Draft</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
